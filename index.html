@@ -1,108 +1,161 @@
 <!DOCTYPE html>
-<!--
-	Miniport by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
+<html lang="en">
   <head>
-    <title>Portfolio ni Narz</title>
+    <title>Narz Alamar - Portfolio</title>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <style>
+      :root {
+        --primary-color: #43b3e0;
+        --secondary-color: #2c3e50;
+        --text-color: #333;
+        --bg-color: #fff;
+        --card-bg: #f8f9fa;
+      }
+
+      [data-theme="dark"] {
+        --primary-color: #64b5f6;
+        --secondary-color: #1a1a1a;
+        --text-color: #f0f0f0;
+        --bg-color: #121212;
+        --card-bg: #1e1e1e;
+      }
+
+      body {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      .theme-toggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+        background: var(--primary-color);
+        border: none;
+        padding: 10px;
+        border-radius: 50%;
+        cursor: pointer;
+        color: white;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      }
+
+      .box {
+        background: var(--card-bg);
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      }
+
+      .social a {
+        transition: transform 0.3s;
+      }
+
+      .social a:hover {
+        transform: scale(1.2);
+      }
+
+      .console-cursor {
+        animation: blink 1s infinite;
+      }
+
+      @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+      }
+
+      .skill-tag {
+        display: inline-block;
+        padding: 5px 10px;
+        margin: 5px;
+        background: var(--primary-color);
+        color: white;
+        border-radius: 15px;
+        font-size: 0.8em;
+      }
+    </style>
   </head>
   <body class="is-preload">
+    <button class="theme-toggle" onclick="toggleTheme()">
+      <i class="fas fa-moon"></i>
+    </button>
+
     <!-- Nav -->
     <nav id="nav">
       <ul class="container">
-        <li><a href="#top">Top</a></li>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#work">About Me</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#top">Home</a></li>
+        <li><a href="#work">Skills</a></li>
+        <li><a href="#portfolio">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
 
     <!-- Home -->
-    <article id="top" class="wrapper style1" style="background: #282828">
+    <article id="top" class="wrapper style1">
       <div class="container">
         <div class="row">
           <div class="col-4 col-5-large col-12-medium">
-            <span class="image fit" style="z-index: 999"
-              ><img src="images/me.jpg" alt=""
-            /></span>
+            <span class="image fit">
+              <img src="images/me.jpg" alt="Narz Alamar" class="profile-image" />
+            </span>
           </div>
-          <div class="col-8 col-7-large col-12-medium" style="z-index: 999">
+          <div class="col-8 col-7-large col-12-medium">
             <header>
-              <h1 class="console-cursor" style="color: #c8c8c8">
-                <span style="color: #fff">></span> Hi. I'm
-                <strong style="color: #43b3e0">Narz</strong>.<span
-                  class="cursor"
-                  >&nbsp;
-                </span>
+              <h1 class="console-cursor">
+                <span>></span> Hi, I'm <strong style="color: var(--primary-color)">Narz Alamar</strong>
               </h1>
             </header>
-            <p>
-              And this is my
-              <strong style="color: #43b3e0ce">Portfolio</strong>!
-            </p>
-            <a href="#work" class="button large scrolly" style="z-index: 999"
-              >Here's what I do</a
-            >
+            <p class="subtitle">Full Stack Developer & Software Engineer</p>
+            <div class="skills-container">
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">TypeScript</span>
+              <span class="skill-tag">Node.js</span>
+              <span class="skill-tag">Svelte</span>
+              <span class="skill-tag">MongoDB</span>
+              <span class="skill-tag">MySQL</span>
+            </div>
+            <a href="#work" class="button large scrolly">Explore My Work</a>
           </div>
         </div>
       </div>
-      <script src="assets/js/script.js"></script>
     </article>
 
-    <!-- Work -->
+    <!-- Skills -->
     <article id="work" class="wrapper style2">
       <div class="container">
         <header>
-          <h2>Here's all the stuff I do.</h2>
-          <p>Odio turpis amet sed consequat eget posuere consequat.</p>
+          <h2>My Skills & Expertise</h2>
+          <p>Technologies and tools I work with</p>
         </header>
         <div class="row aln-center">
           <div class="col-4 col-6-medium col-12-small">
             <section class="box style1">
-              <span class="icon featured fa-comments"></span>
-              <h3>Consequat lorem</h3>
-              <p>
-                Ornare nulla proin odio consequat sapien vestibulum ipsum primis
-                sed amet consequat lorem dolore.
-              </p>
+              <span class="icon featured fa-code"></span>
+              <h3>Frontend Development</h3>
+              <p>React, Svelte, TypeScript, HTML5, CSS3, JavaScript</p>
             </section>
           </div>
           <div class="col-4 col-6-medium col-12-small">
             <section class="box style1">
-              <span class="icon solid featured fa-camera-retro"></span>
-              <h3>Lorem dolor tempus</h3>
-              <p>
-                Ornare nulla proin odio consequat sapien vestibulum ipsum primis
-                sed amet consequat lorem dolore.
-              </p>
+              <span class="icon solid featured fa-server"></span>
+              <h3>Backend Development</h3>
+              <p>Node.js, AdonisJS, Express, PHP, C#</p>
             </section>
           </div>
           <div class="col-4 col-6-medium col-12-small">
             <section class="box style1">
-              <span class="icon featured fa-thumbs-up"></span>
-              <h3>Feugiat posuere</h3>
-              <p>
-                Ornare nulla proin odio consequat sapien vestibulum ipsum primis
-                sed amet consequat lorem dolore.
-              </p>
+              <span class="icon featured fa-database"></span>
+              <h3>Database & DevOps</h3>
+              <p>MySQL, MongoDB, Git, Docker, AWS</p>
             </section>
           </div>
         </div>
-        <footer>
-          <p>Lorem ipsum dolor sit sapien vestibulum ipsum primis?</p>
-          <a href="#portfolio" class="button large scrolly"
-            >See some of my recent work</a
-          >
-        </footer>
       </div>
     </article>
 
@@ -110,7 +163,8 @@
     <article id="portfolio" class="wrapper style3">
       <div class="container">
         <header>
-          <h2>Here’s some stuff I made and contributed.</h2>
+          <h2>Featured Projects</h2>
+          <p>Some of my recent work and contributions</p>
         </header>
         <div class="row">
           <div class="col-4 col-6-medium col-12-small">
@@ -275,10 +329,6 @@
             </article>
           </div>
         </div>
-        <footer>
-          <p>Lorem ipsum dolor sit sapien vestibulum ipsum primis?</p>
-          <a href="#contact" class="button large scrolly">Connect with me</a>
-        </footer>
       </div>
     </article>
 
@@ -286,48 +336,28 @@
     <article id="contact" class="wrapper style4">
       <div class="container medium">
         <header>
-          <h2>Let me know how I can help.</h2>
-          <p>
-            Feel free to connect with me and discuss how my expertise can help
-            you in your project.
-          </p>
+          <h2>Get In Touch</h2>
+          <p>Let's discuss how I can help with your project</p>
         </header>
         <div class="row">
           <div class="col-12">
-            <form method="post" action="#">
+            <form method="post" action="#" id="contact-form">
               <div class="row">
                 <div class="col-6 col-12-small">
-                  <input type="text" name="name" id="name" placeholder="Name" />
+                  <input type="text" name="name" id="name" placeholder="Name" required />
                 </div>
                 <div class="col-6 col-12-small">
-                  <input
-                    type="text"
-                    name="email"
-                    id="email"
-                    placeholder="Email"
-                  />
+                  <input type="email" name="email" id="email" placeholder="Email" required />
                 </div>
                 <div class="col-12">
-                  <input
-                    type="text"
-                    name="subject"
-                    id="subject"
-                    placeholder="Subject"
-                  />
+                  <input type="text" name="subject" id="subject" placeholder="Subject" required />
                 </div>
                 <div class="col-12">
-                  <textarea
-                    name="message"
-                    id="message"
-                    placeholder="Message"
-                  ></textarea>
+                  <textarea name="message" id="message" placeholder="Message" required></textarea>
                 </div>
                 <div class="col-12">
                   <ul class="actions">
-                    <li><input type="submit" value="Send Message" /></li>
-                    <li>
-                      <input type="reset" value="Clear Form" class="alt" />
-                    </li>
+                    <li><input type="submit" value="Send Message" class="primary" /></li>
                   </ul>
                 </div>
               </div>
@@ -335,55 +365,34 @@
           </div>
           <div class="col-12">
             <hr />
-            <h3>Find me on ...</h3>
+            <h3>Connect With Me</h3>
             <ul class="social">
               <li>
-                <a
-                  href="https://www.facebook.com/narzZ08"
-                  class="icon brands fa-facebook-f"
-                  ><span class="label">Facebook</span></a
-                >
+                <a href="https://www.linkedin.com/in/narciso-alamar-6a614017b/" class="icon brands fa-linkedin-in">
+                  <span class="label">LinkedIn</span>
+                </a>
               </li>
               <li>
-                <a
-                  href="https://www.instagram.com/narcisoalamariii/"
-                  class="icon brands fa-instagram"
-                  ><span class="label">Instagram</span></a
-                >
+                <a href="https://github.com/narzz03" class="icon brands fa-github">
+                  <span class="label">Github</span>
+                </a>
               </li>
               <li>
-                <a
-                  href="https://www.linkedin.com/in/narciso-alamar-6a614017b/"
-                  class="icon brands fa-linkedin-in"
-                  ><span class="label">LinkedIn</span></a
-                >
+                <a href="https://www.facebook.com/narzZ08" class="icon brands fa-facebook-f">
+                  <span class="label">Facebook</span>
+                </a>
               </li>
               <li>
-                <a
-                  href="https://github.com/narzz03"
-                  class="icon brands fa-github"
-                  ><span class="label">Github</span></a
-                >
+                <a href="https://www.instagram.com/narcisoalamariii/" class="icon brands fa-instagram">
+                  <span class="label">Instagram</span>
+                </a>
               </li>
-              <!--
-								<li><a href="#" class="icon solid fa-rss"><span>RSS</span></a></li>
-								<li><a href="#" class="icon brands fa-instagram"><span>Instagram</span></a></li>
-								<li><a href="#" class="icon brands fa-foursquare"><span>Foursquare</span></a></li>
-								<li><a href="#" class="icon brands fa-skype"><span>Skype</span></a></li>
-								<li><a href="#" class="icon brands fa-soundcloud"><span>Soundcloud</span></a></li>
-								<li><a href="#" class="icon brands fa-youtube"><span>YouTube</span></a></li>
-								<li><a href="#" class="icon brands fa-blogger"><span>Blogger</span></a></li>
-								<li><a href="#" class="icon brands fa-flickr"><span>Flickr</span></a></li>
-								<li><a href="#" class="icon brands fa-vimeo"><span>Vimeo</span></a></li>
-								-->
             </ul>
-            <hr />
           </div>
         </div>
         <footer>
           <ul id="copyright">
-            <li>&copy; Untitled. All rights reserved.</li>
-            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+            <li>&copy; 2024 Narz Alamar. All rights reserved.</li>
           </ul>
         </footer>
       </div>
@@ -396,5 +405,31 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+    <script>
+      function toggleTheme() {
+        const body = document.body;
+        const currentTheme = body.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        
+        const icon = document.querySelector('.theme-toggle i');
+        icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+      }
+
+      // Check for saved theme preference
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.body.setAttribute('data-theme', savedTheme);
+      const icon = document.querySelector('.theme-toggle i');
+      icon.className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+
+      // Form submission handling
+      document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        // Add your form submission logic here
+        alert('Thank you for your message! I will get back to you soon.');
+        this.reset();
+      });
+    </script>
   </body>
 </html>
