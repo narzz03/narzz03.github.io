@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <title>Narz Alamar - Portfolio</title>
     <meta charset="utf-8" />
@@ -10,23 +10,282 @@
       :root {
         --primary-color: #43b3e0;
         --secondary-color: #2c3e50;
-        --text-color: #333;
-        --bg-color: #fff;
-        --card-bg: #f8f9fa;
-      }
-
-      [data-theme="dark"] {
-        --primary-color: #64b5f6;
-        --secondary-color: #1a1a1a;
         --text-color: #f0f0f0;
         --bg-color: #121212;
         --card-bg: #1e1e1e;
+        --console-bg: #0a0a0a;
+        --console-text: #00ff00;
+        --console-border: rgba(0, 255, 0, 0.2);
       }
 
-      body {
-        background-color: var(--bg-color);
-        color: var(--text-color);
-        transition: background-color 0.3s, color 0.3s;
+      /* Force dark theme by default */
+      html, body {
+        background-color: var(--bg-color) !important;
+        color: var(--text-color) !important;
+        min-height: 100vh;
+      }
+
+      /* Override any default white backgrounds */
+      .wrapper {
+        background-color: var(--bg-color) !important;
+      }
+
+      .wrapper.style1,
+      .wrapper.style2,
+      .wrapper.style3,
+      .wrapper.style4 {
+        background-color: var(--bg-color) !important;
+        color: var(--text-color) !important;
+      }
+
+      /* Update navigation styles */
+      #nav {
+        background-color: var(--console-bg) !important;
+        border-bottom: 1px solid var(--console-border);
+      }
+
+      #nav ul li a {
+        color: var(--text-color) !important;
+      }
+
+      #nav ul li a:hover {
+        color: var(--primary-color) !important;
+      }
+
+      /* Update card and box styles */
+      .box {
+        background-color: var(--card-bg) !important;
+        color: var(--text-color) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      /* Update text colors */
+      h1, h2, h3, h4, h5, h6 {
+        color: var(--text-color) !important;
+      }
+
+      p {
+        color: var(--text-color) !important;
+      }
+
+      /* Update form elements */
+      input[type="text"],
+      input[type="email"],
+      textarea {
+        background-color: var(--card-bg) !important;
+        color: var(--text-color) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      }
+
+      input[type="text"]:focus,
+      input[type="email"]:focus,
+      textarea:focus {
+        border-color: var(--primary-color) !important;
+      }
+
+      /* Update button styles */
+      .button {
+        background-color: var(--console-bg) !important;
+        color: var(--text-color) !important;
+        border: 1px solid var(--primary-color) !important;
+      }
+
+      .button:hover {
+        background-color: var(--primary-color) !important;
+        color: var(--bg-color) !important;
+      }
+
+      /* Update banner styles */
+      .banner {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: linear-gradient(to bottom, #0a0a2a, #1a1a3a);
+        overflow: hidden;
+        z-index: 0;
+      }
+
+      .star {
+        position: absolute;
+        width: 3px;
+        height: 3px;
+        background: white;
+        animation: twinkle var(--twinkle-duration) infinite;
+        box-shadow: 0 0 4px #fff;
+      }
+
+      .pixel-planet {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #43b3e0;
+        box-shadow: 0 0 20px #43b3e0;
+      }
+
+      /* Update hero section styles */
+      .hero-section {
+        position: relative;
+        z-index: 1;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        background: transparent;
+      }
+
+      .hero-content {
+        background: rgba(10, 10, 10, 0.8);
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(0, 255, 0, 0.2);
+        padding: 3rem;
+        border-radius: 10px;
+        max-width: 1200px;
+        width: 100%;
+      }
+
+      .hero-content::before {
+        content: '● ● ●';
+        position: absolute;
+        top: 10px;
+        left: 15px;
+        color: #ff5f56;
+        font-size: 12px;
+        letter-spacing: 5px;
+      }
+
+      .profile-image-container {
+        position: relative;
+      }
+
+      .profile-image {
+        width: 100%;
+        height: auto;
+        border-radius: 50%;
+        border: 3px solid var(--primary-color);
+        box-shadow: 0 0 20px rgba(67, 179, 224, 0.3);
+      }
+
+      .name-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1rem;
+      }
+
+      .console-line {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.5rem;
+      }
+
+      .console-prompt {
+        color: #00ff00;
+        margin-right: 10px;
+      }
+
+      .console-text {
+        color: #00ff00;
+        font-size: 1.2rem;
+      }
+
+      .logo-text {
+        font-size: 2.5rem;
+        color: #FFFF;
+        position: relative;
+        font-family: 'Press Start 2P', monospace;
+        text-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+        line-height: 1.4;
+      }
+
+      .blinking-cursor {
+        display: inline-block;
+        width: 10px;
+        height: 20px;
+        background-color: #00ff00;
+        margin-left: 5px;
+        animation: blink 1s infinite;
+        vertical-align: middle;
+      }
+
+      @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+      }
+
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin: 0;
+      }
+
+      .skill-tag {
+        background: rgba(0, 255, 0, 0.1);
+        border: 1px solid #00ff00;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        color: #00ff00;
+        font-family: 'Courier New', monospace;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+      }
+
+      .skill-tag:hover {
+        background: rgba(0, 255, 0, 0.2);
+        transform: translateY(-2px);
+      }
+
+      .explore-button {
+        margin-top: 1rem;
+        padding: 1rem 2rem;
+        background: transparent;
+        border: 1px solid #00ff00;
+        color: #00ff00;
+        font-family: 'Courier New', monospace;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .explore-button:hover {
+        background: rgba(0, 255, 0, 0.1);
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+      }
+
+      /* Updated Smoke Trail Effect */
+      .smoke-particle {
+        position: fixed;
+        pointer-events: none;
+        background: radial-gradient(ellipse at center, 
+          rgba(200, 200, 200, 0.3) 0%,
+          rgba(200, 200, 200, 0.2) 30%,
+          rgba(200, 200, 200, 0) 80%);
+        z-index: 9999;
+        will-change: transform, opacity;
+        border-radius: 50%;
+        filter: blur(12px);
+        transform-origin: center;
+        width: 100px;
+        height: 100px;
+      }
+
+      /* Cursor Trail Effect */
+      .cursor-trail {
+        position: fixed;
+        width: 10px;
+        height: 10px;
+        background: #ffffff;
+        border-radius: 50%;
+        pointer-events: none;
+        opacity: 0.5;
+        z-index: 9999;
       }
 
       .theme-toggle {
@@ -43,14 +302,9 @@
         box-shadow: 0 2px 5px rgba(0,0,0,0.2);
       }
 
-      .box {
-        background: var(--card-bg);
-        transition: transform 0.3s, box-shadow 0.3s;
-      }
-
       .box:hover {
         transform: translateY(-5px);
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
       }
 
       .social a {
@@ -79,9 +333,743 @@
         border-radius: 15px;
         font-size: 0.8em;
       }
+
+      /* Console Styles */
+      .console-article {
+        background: var(--console-bg);
+        color: var(--console-text);
+        font-family: 'Courier New', monospace;
+        padding: 2rem;
+        border-radius: 5px;
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+        border: 1px solid var(--console-border);
+      }
+
+      .console-article::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 30px;
+        background: #1a1a1a;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+      }
+
+      .console-article::after {
+        content: '● ● ●';
+        position: absolute;
+        top: 8px;
+        left: 15px;
+        color: #ff5f56;
+        font-size: 12px;
+        letter-spacing: 2px;
+      }
+
+      .console-header {
+        margin-top: 40px;
+        margin-bottom: 2rem;
+      }
+
+      .console-header h2 {
+        color: #00ff00;
+        font-size: 1.5em;
+        margin-bottom: 1rem;
+        text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+      }
+
+      .console-header p {
+        color: #00ff00;
+        opacity: 0.8;
+      }
+
+      .console-box {
+        background: rgba(0, 255, 0, 0.05);
+        border: 1px solid var(--console-border);
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .console-box:hover {
+        background: rgba(0, 255, 0, 0.1);
+        border-color: rgba(0, 255, 0, 0.4);
+        box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+      }
+
+      .console-box::before {
+        content: '>';
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--console-text);
+        opacity: 0.5;
+      }
+
+      .console-box h3 {
+        color: var(--console-text);
+        margin-left: 20px;
+        font-size: 1.2em;
+      }
+
+      .console-box p {
+        color: var(--console-text);
+        opacity: 0.8;
+        margin-left: 20px;
+      }
+
+      .console-icon {
+        color: var(--console-text);
+        opacity: 0.8;
+        margin-right: 10px;
+      }
+
+      .console-button {
+        background: transparent;
+        border: 1px solid var(--console-text);
+        color: var(--console-text);
+        padding: 0.8rem 1.5rem;
+        font-family: 'Courier New', monospace;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .console-button:hover {
+        background: rgba(0, 255, 0, 0.1);
+        box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+      }
+
+      .console-button::after {
+        content: '_';
+        animation: blink 1s infinite;
+      }
+
+      .console-cursor {
+        display: inline-block;
+        width: 10px;
+        height: 20px;
+        background: #00ff00;
+        margin-left: 5px;
+        animation: blink 1s infinite;
+      }
+
+      @media (max-width: 768px) {
+        .hero-content {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+
+        .name-container {
+          align-items: center;
+        }
+
+        .console-line {
+          justify-content: center;
+        }
+
+        .skill-tags {
+          justify-content: center;
+        }
+      }
+
+      /* Add these new styles */
+      .typing-container {
+        min-height: 30px;
+        position: relative;
+        margin: 0;
+      }
+
+      .typing-text {
+        color: #00ff00;
+        font-family: 'Courier New', monospace;
+        font-size: 1.1rem;
+        white-space: nowrap;
+        margin: 0;
+        position: relative;
+        text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+      }
+
+      .typing-text::after {
+        content: '|';
+        position: absolute;
+        right: -10px;
+        color: #00ff00;
+        animation: blink 1s infinite;
+        text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+      }
+
+      @keyframes typing {
+        from { width: 0 }
+        to { width: 100% }
+      }
+
+      .hidden-skills {
+        display: none;
+        color: #00ff00;
+        font-family: 'Courier New', monospace;
+        font-size: 2.5rem;
+        white-space: nowrap;
+        margin: 0;
+        position: relative;
+      }
+
+      .skill-animation {
+        overflow: hidden;
+        border-right: 2px solid #00ff00;
+        white-space: nowrap;
+        margin: 0;
+        animation: 
+          typing 1s steps(30, end),
+          blink-caret .5s step-end infinite;
+      }
+
+      @keyframes blink-caret {
+        from, to { border-color: transparent }
+        50% { border-color: #00ff00 }
+      }
+
+      /* Skill Card Styles */
+      .skill-card {
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        background: #1a1a1a !important;
+        border: 1px solid #00ff00 !important;
+        min-height: 300px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .skill-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+      }
+
+      .skill-header {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        flex-direction: column;
+      }
+
+      .skill-header h3 {
+        font-size: 1.2rem;
+        margin: 0;
+        color: #fff !important;
+        font-family: 'Courier New', monospace;
+        white-space: nowrap;
+      }
+
+      .skill-header .console-icon {
+        color: #00ff00;
+        font-size: 2.5rem;
+        text-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+        margin-bottom: 0.5rem;
+      }
+
+      .skill-content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .skill-tag {
+        background: rgba(0, 255, 0, 0.1);
+        border: 1px solid #00ff00;
+        padding: 0.4rem 0.8rem;
+        border-radius: 4px;
+        color: #00ff00;
+        font-family: 'Courier New', monospace;
+        font-size: 0.85rem;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+      }
+
+      .skill-tag:hover {
+        background: rgba(0, 255, 0, 0.2);
+        transform: translateY(-2px);
+      }
+
+      .skill-progress {
+        height: 2px;
+        background: rgba(0, 255, 0, 0.1);
+        border-radius: 1px;
+        overflow: hidden;
+        margin-top: auto;
+      }
+
+      .progress-bar {
+        height: 100%;
+        background: #00ff00;
+        border-radius: 1px;
+        transition: width 1s ease-in-out;
+      }
+
+      .console-box {
+        padding: 1.5rem;
+      }
+
+      .console-box::before {
+        content: '>';
+        position: absolute;
+        left: 1rem;
+        top: 1rem;
+        color: #00ff00;
+        opacity: 0.5;
+      }
+
+      .console-header {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding-top: 4rem;
+      }
+
+      .console-header h2 {
+        font-family: 'Courier New', monospace;
+        color: #fff !important;
+        margin: 1rem 0;
+      }
+
+      .console-header p {
+        color: #888 !important;
+        font-family: 'Courier New', monospace;
+      }
+
+      .console-line {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        justify-content: center;
+        margin-bottom: 1rem;
+      }
+
+      .console-prompt {
+        color: #00ff00;
+      }
+
+      .console-text {
+        color: #00ff00;
+        font-family: 'Courier New', monospace;
+      }
+
+      /* Project Card Styles */
+      .project-card {
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background: var(--card-bg) !important;
+        border: 1px solid rgba(0, 255, 0, 0.1) !important;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 2rem;
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 255, 0, 0.2);
+      }
+
+      .project-image {
+        position: relative;
+        overflow: hidden;
+        aspect-ratio: 16/9;
+      }
+
+      .project-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .project-card:hover .project-image img {
+        transform: scale(1.1);
+      }
+
+      .project-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .project-card:hover .project-overlay {
+        opacity: 1;
+      }
+
+      .project-links {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .project-link,
+      .project-github {
+        color: #00ff00;
+        font-size: 1.5rem;
+        transition: transform 0.3s ease, color 0.3s ease;
+      }
+
+      .project-link:hover,
+      .project-github:hover {
+        transform: scale(1.2);
+        color: var(--primary-color);
+      }
+
+      .project-content {
+        padding: 2rem;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .project-content h3 {
+        margin-bottom: 1.5rem;
+      }
+
+      .project-content h3 a {
+        color: var(--text-color);
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .project-content h3 a:hover {
+        color: var(--primary-color);
+      }
+
+      .project-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin: 1.5rem 0;
+      }
+
+      .tech-tag {
+        background: rgba(0, 255, 0, 0.1);
+        color: #00ff00;
+        padding: 0.3rem 0.8rem;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-family: 'Courier New', monospace;
+        border: 1px solid rgba(0, 255, 0, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .tech-tag:hover {
+        background: rgba(0, 255, 0, 0.2);
+        transform: translateY(-2px);
+      }
+
+      .project-description {
+        color: var(--text-color);
+        opacity: 0.8;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-top: 1.5rem;
+      }
+
+      /* Console-like header for portfolio */
+      .console-header {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding-top: 4rem;
+      }
+
+      .console-header h2 {
+        color: #00ff00;
+        font-family: 'Courier New', monospace;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        text-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+      }
+
+      .console-header p {
+        color: #00ff00;
+        opacity: 0.8;
+        font-family: 'Courier New', monospace;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .project-card {
+          margin-bottom: 1.5rem;
+        }
+
+        .project-tech {
+          justify-content: center;
+        }
+
+        .project-content {
+          text-align: center;
+        }
+
+        #portfolio {
+          padding-top: 3rem;
+          padding-bottom: 3rem;
+          margin-top: 3rem;
+        }
+
+        .console-header {
+          padding-top: 2rem;
+          margin-bottom: 2rem;
+        }
+      }
+
+      /* Add spacing between sections */
+      #portfolio {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+        margin-top: 4rem;
+        background: linear-gradient(to bottom, 
+          rgba(10, 10, 10, 0.8) 0%,
+          rgba(10, 10, 10, 0.95) 100%
+        );
+        position: relative;
+      }
+
+      #portfolio::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(to right,
+          transparent 0%,
+          rgba(0, 255, 0, 0.3) 50%,
+          transparent 100%
+        );
+      }
+
+      #portfolio::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(to right,
+          transparent 0%,
+          rgba(0, 255, 0, 0.3) 50%,
+          transparent 100%
+        );
+      }
+
+      /* Update skills section spacing */
+      #work {
+        padding-bottom: 4rem;
+        margin-bottom: 4rem;
+      }
+
+      /* Add smooth transition between sections */
+      .wrapper {
+        transition: all 0.5s ease;
+      }
+
+      /* Add hover effect for section transitions */
+      .wrapper:hover {
+        transform: translateY(-5px);
+      }
+
+      /* Add spacing between project cards */
+      .project-card {
+        margin-bottom: 2rem;
+      }
+
+      /* Add spacing between rows */
+      .row {
+        margin-bottom: 3rem;
+      }
+
+      /* Add spacing between tech tags */
+      .project-tech {
+        margin: 1.5rem 0;
+      }
+
+      /* Add spacing between project content elements */
+      .project-content {
+        padding: 2rem;
+      }
+
+      .project-content h3 {
+        margin-bottom: 1.5rem;
+      }
+
+      .project-description {
+        margin-top: 1.5rem;
+      }
+
+      /* Contact Form Console Styles */
+      #contact {
+        margin-top: 4rem;
+        padding-top: 4rem;
+        position: relative;
+      }
+
+      #contact::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(to right,
+          transparent 0%,
+          rgba(0, 255, 0, 0.3) 50%,
+          transparent 100%
+        );
+      }
+
+      .console-input {
+        position: relative;
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        background: rgba(0, 255, 0, 0.05);
+        border: 1px solid rgba(0, 255, 0, 0.2);
+        padding: 15px;
+        border-radius: 4px;
+      }
+
+      .console-input .console-prompt {
+        color: #00ff00;
+        font-family: 'Courier New', monospace;
+        font-size: 16px;
+        flex-shrink: 0;
+        position: static;
+        padding-top: 2px;
+      }
+
+      .console-input input,
+      .console-input textarea {
+        width: 100%;
+        background: transparent;
+        border: none;
+        color: #00ff00;
+        font-family: 'Courier New', monospace;
+        font-size: 16px;
+        line-height: 1.5;
+        padding: 10px;
+      }
+
+      .console-input textarea {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      .console-input input:focus,
+      .console-input textarea:focus {
+        outline: none;
+      }
+
+      .console-input:focus-within {
+        background: rgba(0, 255, 0, 0.1);
+        border-color: #00ff00;
+        box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+      }
+
+      #contact .console-box {
+        background: rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(0, 255, 0, 0.2);
+        padding: 2rem;
+        border-radius: 5px;
+      }
+
+      .social {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin: 2rem 0;
+      }
+
+      .social a {
+        color: #00ff00;
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .social a:hover {
+        color: var(--primary-color);
+        transform: scale(1.2);
+      }
+
+      #copyright {
+        text-align: center;
+        margin-top: 2rem;
+      }
     </style>
   </head>
   <body class="is-preload">
+    <!-- 8-bit Banner with Galaxy -->
+    <div class="banner" id="galaxy-banner">
+      <!-- Stars will be added via JavaScript -->
+    </div>
+
+    <!-- Updated Name Section -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <div class="profile-image-container">
+          <img src="images/me.jpg" alt="Narz Alamar" class="profile-image">
+        </div>
+        <div class="name-container">
+          <div class="console-line">
+            <span class="console-prompt">></span>
+            <span class="console-text">whoami</span>
+          </div>
+          <div class="logo-text">
+            Narz Alamar<span class="blinking-cursor"></span>
+          </div>
+          <div class="console-line">
+            <span class="console-prompt">></span>
+            <span class="console-text">occupation</span>
+          </div>
+          <div class="logo-text">
+            Full Stack Developer<span class="blinking-cursor"></span>
+          </div>
+          <div class="console-line">
+            <span class="console-prompt">></span>
+            <span class="console-text">list-skills</span>
+          </div>
+          <div class="typing-container">
+            <p id="typing-text" class="typing-text"></p>
+          </div>
+          <div class="hidden-skills" id="skills-data">
+            Javascript
+            TypeScript
+            Node.js
+            MongoDB
+            MySQL
+            PHP
+            C#
+            AdonisJS
+            ExpressJS
+            ReactJS
+            Sveltekit
+            MongoDB
+            NoSQL Database
+          </div>
+          <a href="#work" class="explore-button">./explore-work.sh<span class="blinking-cursor"></span></a>
+        </div>
+      </div>
+    </section>
+
     <button class="theme-toggle" onclick="toggleTheme()">
       <i class="fas fa-moon"></i>
     </button>
@@ -96,236 +1084,431 @@
       </ul>
     </nav>
 
-    <!-- Home -->
-    <article id="top" class="wrapper style1">
-      <div class="container">
-        <div class="row">
-          <div class="col-4 col-5-large col-12-medium">
-            <span class="image fit">
-              <img src="images/me.jpg" alt="Narz Alamar" class="profile-image" />
-            </span>
-          </div>
-          <div class="col-8 col-7-large col-12-medium">
-            <header>
-              <h1 class="console-cursor">
-                <span>></span> Hi, I'm <strong style="color: var(--primary-color)">Narz Alamar</strong>
-              </h1>
-            </header>
-            <p class="subtitle">Full Stack Developer & Software Engineer</p>
-            <div class="skills-container">
-              <span class="skill-tag">React</span>
-              <span class="skill-tag">TypeScript</span>
-              <span class="skill-tag">Node.js</span>
-              <span class="skill-tag">Svelte</span>
-              <span class="skill-tag">MongoDB</span>
-              <span class="skill-tag">MySQL</span>
-            </div>
-            <a href="#work" class="button large scrolly">Explore My Work</a>
-          </div>
-        </div>
-      </div>
-    </article>
-
     <!-- Skills -->
-    <article id="work" class="wrapper style2">
+    <article id="work" class="wrapper style2 console-article">
       <div class="container">
-        <header>
+        <header class="console-header">
+          <div class="console-line">
+            <span class="console-prompt">></span>
+            <span class="console-text">skills</span>
+          </div>
           <h2>My Skills & Expertise</h2>
           <p>Technologies and tools I work with</p>
         </header>
         <div class="row aln-center">
           <div class="col-4 col-6-medium col-12-small">
-            <section class="box style1">
-              <span class="icon featured fa-code"></span>
-              <h3>Frontend Development</h3>
-              <p>React, Svelte, TypeScript, HTML5, CSS3, JavaScript</p>
+            <section class="box style1 console-box skill-card">
+              <div class="skill-header">
+                <span class="icon featured fa-code console-icon"></span>
+                <h3>Frontend Development</h3>
+              </div>
+              <div class="skill-content">
+                <div class="skill-tag">React</div>
+                <div class="skill-tag">Svelte</div>
+                <div class="skill-tag">TypeScript</div>
+                <div class="skill-tag">HTML5</div>
+                <div class="skill-tag">CSS3</div>
+                <div class="skill-tag">JavaScript</div>
+              </div>
+              <div class="skill-progress">
+                <div class="progress-bar" style="width: 90%"></div>
+              </div>
             </section>
           </div>
           <div class="col-4 col-6-medium col-12-small">
-            <section class="box style1">
-              <span class="icon solid featured fa-server"></span>
-              <h3>Backend Development</h3>
-              <p>Node.js, AdonisJS, Express, PHP, C#</p>
+            <section class="box style1 console-box skill-card">
+              <div class="skill-header">
+                <span class="icon solid featured fa-server console-icon"></span>
+                <h3>Backend Development</h3>
+              </div>
+              <div class="skill-content">
+                <div class="skill-tag">Node.js</div>
+                <div class="skill-tag">AdonisJS</div>
+                <div class="skill-tag">Express</div>
+                <div class="skill-tag">PHP</div>
+                <div class="skill-tag">C#</div>
+                <div class="skill-tag">Prisma</div>
+              </div>
+              <div class="skill-progress">
+                <div class="progress-bar" style="width: 85%"></div>
+              </div>
             </section>
           </div>
           <div class="col-4 col-6-medium col-12-small">
-            <section class="box style1">
-              <span class="icon featured fa-database"></span>
-              <h3>Database & DevOps</h3>
-              <p>MySQL, MongoDB, Git, Docker, AWS</p>
+            <section class="box style1 console-box skill-card">
+              <div class="skill-header">
+                <span class="icon featured fa-database console-icon"></span>
+                <h3>Database & DevOps</h3>
+              </div>
+              <div class="skill-content">
+                <div class="skill-tag">MySQL</div>
+                <div class="skill-tag">MongoDB</div>
+                <div class="skill-tag">Git</div>
+                <div class="skill-tag">Docker</div>
+                <div class="skill-tag">AWS</div>
+              </div>
+              <div class="skill-progress">
+                <div class="progress-bar" style="width: 80%"></div>
+              </div>
             </section>
+          </div>
+        </div>
+        <div class="row" style="margin-top: 2rem;">
+          <div class="col-12" style="text-align: center;">
+            <a href="#portfolio" class="button large scrolly console-button">
+              ./view-projects.sh<span class="console-cursor"></span>
+            </a>
           </div>
         </div>
       </div>
     </article>
 
     <!-- Portfolio -->
-    <article id="portfolio" class="wrapper style3">
+    <article id="portfolio" class="wrapper style3 console-article">
       <div class="container">
-        <header>
+        <header class="console-header">
+          <div class="console-line">
+            <span class="console-prompt">></span>
+            <span class="console-text">projects</span>
+          </div>
           <h2>Featured Projects</h2>
           <p>Some of my recent work and contributions</p>
         </header>
         <div class="row">
           <div class="col-4 col-6-medium col-12-small">
-            <article class="box style2">
-              <a href="#" class="image featured"
-                ><img src="images/pic01.jpg" alt=""
-              /></a>
-              <h3>
-                <a href="#"
-                  >Central Philippine University <br />Attendance Monitoring
-                  System</a
-                >
-              </h3>
-              <p>C#, PHP, MySQL</p>
+            <article class="box style2 project-card">
+              <div class="project-image">
+                <img src="images/pic01.jpg" alt="CPU Attendance System" />
+                <div class="project-overlay">
+                  <div class="project-links">
+                    <a href="#" class="project-link"><i class="fas fa-link"></i></a>
+                    <a href="#" class="project-github"><i class="fab fa-github"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="project-content">
+                <h3>
+                  <a href="#">Central Philippine University <br />Attendance Monitoring System</a>
+                </h3>
+                <div class="project-tech">
+                  <span class="tech-tag">C#</span>
+                  <span class="tech-tag">PHP</span>
+                  <span class="tech-tag">MySQL</span>
+                </div>
+                <p class="project-description">A comprehensive attendance monitoring system for university students and faculty.</p>
+              </div>
             </article>
           </div>
           <div class="col-4 col-6-medium col-12-small">
-            <article class="box style2">
-              <a href="#" class="image featured"
-                ><img src="images/pic02.jpg" alt=""
-              /></a>
-              <h3><a href="#">Josmef Inventory System</a></h3>
-              <p>C#, MySQL</p>
+            <article class="box style2 project-card">
+              <div class="project-image">
+                <img src="images/pic02.jpg" alt="Josmef Inventory System" />
+                <div class="project-overlay">
+                  <div class="project-links">
+                    <a href="#" class="project-link"><i class="fas fa-link"></i></a>
+                    <a href="#" class="project-github"><i class="fab fa-github"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="project-content">
+                <h3><a href="#">Josmef Inventory System</a></h3>
+                <div class="project-tech">
+                  <span class="tech-tag">C#</span>
+                  <span class="tech-tag">MySQL</span>
+                </div>
+                <p class="project-description">Inventory management system for tracking and managing stock levels.</p>
+              </div>
             </article>
           </div>
           <div class="col-4 col-6-medium col-12-small">
-            <article class="box style2">
-              <a href="#" class="image featured"
-                ><img src="images/pic03.jpg" alt=""
-              /></a>
-              <h3>
-                <a href="#">Proof BPO <br />Timekeeping Tool (Desktop App)</a>
-              </h3>
-              <p>C#, MySQL</p>
+            <article class="box style2 project-card">
+              <div class="project-image">
+                <img src="images/pic03.jpg" alt="Proof BPO Timekeeping Tool" />
+                <div class="project-overlay">
+                  <div class="project-links">
+                    <a href="#" class="project-link"><i class="fas fa-link"></i></a>
+                    <a href="#" class="project-github"><i class="fab fa-github"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="project-content">
+                <h3>
+                  <a href="#">Proof BPO <br />Timekeeping Tool (Desktop App)</a>
+                </h3>
+                <div class="project-tech">
+                  <span class="tech-tag">C#</span>
+                  <span class="tech-tag">MySQL</span>
+                </div>
+                <p class="project-description">A desktop application for timekeeping and attendance tracking.</p>
+              </div>
             </article>
           </div>
           <div class="col-4 col-6-medium col-12-small">
-            <article class="box style2">
-              <a href="#" class="image featured"
-                ><img src="images/pic04.jpg" alt=""
-              /></a>
-              <h3>
-                <a href="#"
-                  >Proof BPO <br />Timekeeping and Coaching Tool <br />
-                  (Web App)</a
-                >
-              </h3>
-              <p>PHP, Javascript, MySQL</p>
+            <article class="box style2 project-card">
+              <div class="project-image">
+                <img src="images/pic04.jpg" alt="Proof BPO Timekeeping and Coaching Tool" />
+                <div class="project-overlay">
+                  <div class="project-links">
+                    <a href="#" class="project-link"><i class="fas fa-link"></i></a>
+                    <a href="#" class="project-github"><i class="fab fa-github"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="project-content">
+                <h3>
+                  <a href="#">Proof BPO <br />Timekeeping and Coaching Tool <br />
+                    (Web App)</a>
+                </h3>
+                <div class="project-tech">
+                  <span class="tech-tag">PHP</span>
+                  <span class="tech-tag">Javascript</span>
+                  <span class="tech-tag">MySQL</span>
+                </div>
+                <p class="project-description">A web application for timekeeping and coaching.</p>
+              </div>
             </article>
           </div>
           <div class="col-4 col-6-medium col-12-small">
-            <article class="box style2">
-              <a href="#" class="image featured"
-                ><img src="images/pic05.jpg" alt=""
-              /></a>
-              <h3>
-                <a href="#"
-                  >XtendOps Portal-Ex<br />Timekeeping Tool <br />
-                  (Desktop App)</a
-                >
-              </h3>
-              <p>C#</p>
+            <article class="box style2 project-card">
+              <div class="project-image">
+                <img src="images/pic05.jpg" alt="XtendOps Timekeeping Tool" />
+                <div class="project-overlay">
+                  <div class="project-links">
+                    <a href="#" class="project-link"><i class="fas fa-link"></i></a>
+                    <a href="#" class="project-github"><i class="fab fa-github"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="project-content">
+                <h3>
+                  <a href="#">XtendOps Portal-Ex<br />Timekeeping Tool <br />
+                    (Desktop App)</a>
+                </h3>
+                <div class="project-tech">
+                  <span class="tech-tag">C#</span>
+                </div>
+                <p class="project-description">A desktop application for timekeeping and attendance tracking.</p>
+              </div>
             </article>
           </div>
           <div class="col-4 col-6-medium col-12-small">
-            <article class="box style2">
-              <a href="#" class="image featured"
-                ><img src="images/pic06.jpg" alt=""
-              /></a>
-              <h3>
-                <a href="#">XtendOps <br />Timekeeping Tool<br />(Web App)</a>
-              </h3>
-              <p>C#, Javascript, MySQL</p>
+            <article class="box style2 project-card">
+              <div class="project-image">
+                <img src="images/pic06.jpg" alt="XtendOps Timekeeping Tool" />
+                <div class="project-overlay">
+                  <div class="project-links">
+                    <a href="#" class="project-link"><i class="fas fa-link"></i></a>
+                    <a href="#" class="project-github"><i class="fab fa-github"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="project-content">
+                <h3>
+                  <a href="#">XtendOps <br />Timekeeping Tool<br />(Web App)</a>
+                </h3>
+                <div class="project-tech">
+                  <span class="tech-tag">C#</span>
+                  <span class="tech-tag">Javascript</span>
+                  <span class="tech-tag">MySQL</span>
+                </div>
+                <p class="project-description">A web application for timekeeping and attendance tracking.</p>
+              </div>
             </article>
           </div>
           <div class="col-4 col-6-medium col-12-small">
-            <article class="box style2">
-              <a href="#" class="image featured"
-                ><img src="images/pic04.jpg" alt=""
-              /></a>
-              <h3>
-                <a href="#">XtendOps <br />Talent Acquisition Portal</a>
-              </h3>
-              <p>Adonis 5, NodeJS, ReactJS, TypeScript, MySQL</p>
+            <article class="box style2 project-card">
+              <div class="project-image">
+                <img src="images/pic04.jpg" alt="XtendOps Talent Acquisition Portal" />
+                <div class="project-overlay">
+                  <div class="project-links">
+                    <a href="#" class="project-link"><i class="fas fa-link"></i></a>
+                    <a href="#" class="project-github"><i class="fab fa-github"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="project-content">
+                <h3>
+                  <a href="#">XtendOps <br />Talent Acquisition Portal</a>
+                </h3>
+                <div class="project-tech">
+                  <span class="tech-tag">Adonis 5</span>
+                  <span class="tech-tag">NodeJS</span>
+                  <span class="tech-tag">ReactJS</span>
+                  <span class="tech-tag">TypeScript</span>
+                  <span class="tech-tag">MySQL</span>
+                </div>
+                <p class="project-description">A portal for talent acquisition and management.</p>
+              </div>
             </article>
           </div>
           <div class="col-4 col-6-medium col-12-small">
-            <article class="box style2">
-              <a href="#" class="image featured"
-                ><img src="images/api-xtendops.png" alt=""
-              /></a>
-              <h3>
-                <a href="#">XtendOps <br />API</a>
-              </h3>
-              <p>Adonis 5, NodeJS, TypeScript, MySQL</p>
+            <article class="box style2 project-card">
+              <div class="project-image">
+                <img src="images/api-xtendops.png" alt="XtendOps API" />
+                <div class="project-overlay">
+                  <div class="project-links">
+                    <a href="#" class="project-link"><i class="fas fa-link"></i></a>
+                    <a href="#" class="project-github"><i class="fab fa-github"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="project-content">
+                <h3>
+                  <a href="#">XtendOps <br />API</a>
+                </h3>
+                <div class="project-tech">
+                  <span class="tech-tag">Adonis 5</span>
+                  <span class="tech-tag">NodeJS</span>
+                  <span class="tech-tag">TypeScript</span>
+                  <span class="tech-tag">MySQL</span>
+                </div>
+                <p class="project-description">An API for XtendOps.</p>
+              </div>
             </article>
           </div>
           <div class="col-4 col-6-medium col-12-small">
-            <article class="box style2">
-              <a href="#" class="image featured"
-                ><img src="images/pic02.jpg" alt=""
-              /></a>
-              <h3>
-                <a href="#">XtendOps <br />iFix</a>
-              </h3>
-              <p>ReactJS, NodeJS, ExpressJS, MongoDB</p>
+            <article class="box style2 project-card">
+              <div class="project-image">
+                <img src="images/pic02.jpg" alt="XtendOps iFix" />
+                <div class="project-overlay">
+                  <div class="project-links">
+                    <a href="#" class="project-link"><i class="fas fa-link"></i></a>
+                    <a href="#" class="project-github"><i class="fab fa-github"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="project-content">
+                <h3>
+                  <a href="#">XtendOps <br />iFix</a>
+                </h3>
+                <div class="project-tech">
+                  <span class="tech-tag">ReactJS</span>
+                  <span class="tech-tag">NodeJS</span>
+                  <span class="tech-tag">ExpressJS</span>
+                  <span class="tech-tag">MongoDB</span>
+                </div>
+                <p class="project-description">A tool for fixing issues in the XtendOps system.</p>
+              </div>
             </article>
           </div>
           <div class="col-4 col-6-medium col-12-small">
-            <article class="box style2">
-              <a href="#" class="image featured"
-                ><img src="images/xconnect.png" alt=""
-              /></a>
-              <h3>
-                <a href="#">XtendOps <br />XConnect</a>
-              </h3>
-              <p>ReactJS, TypeScript, MySQL</p>
+            <article class="box style2 project-card">
+              <div class="project-image">
+                <img src="images/xconnect.png" alt="XtendOps XConnect" />
+                <div class="project-overlay">
+                  <div class="project-links">
+                    <a href="#" class="project-link"><i class="fas fa-link"></i></a>
+                    <a href="#" class="project-github"><i class="fab fa-github"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="project-content">
+                <h3>
+                  <a href="#">XtendOps <br />XConnect</a>
+                </h3>
+                <div class="project-tech">
+                  <span class="tech-tag">ReactJS</span>
+                  <span class="tech-tag">TypeScript</span>
+                  <span class="tech-tag">MySQL</span>
+                </div>
+                <p class="project-description">A tool for connecting XtendOps with other systems.</p>
+              </div>
             </article>
           </div>
           <div class="col-4 col-6-medium col-12-small">
-            <article class="box style2">
-              <a href="#" class="image featured"
-                ><img src="images/xoos.png" alt=""
-              /></a>
-              <h3>
-                <a href="#">XtendOps <br />XOOS</a>
-              </h3>
-              <p>Svelte, TypeScript, MongoDB</p>
+            <article class="box style2 project-card">
+              <div class="project-image">
+                <img src="images/xoos.png" alt="XtendOps XOOS" />
+                <div class="project-overlay">
+                  <div class="project-links">
+                    <a href="#" class="project-link"><i class="fas fa-link"></i></a>
+                    <a href="#" class="project-github"><i class="fab fa-github"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="project-content">
+                <h3>
+                  <a href="#">XtendOps <br />XOOS</a>
+                </h3>
+                <div class="project-tech">
+                  <span class="tech-tag">Svelte</span>
+                  <span class="tech-tag">TypeScript</span>
+                  <span class="tech-tag">MongoDB</span>
+                </div>
+                <p class="project-description">A tool for managing XtendOps operations.</p>
+              </div>
             </article>
           </div>
           <div class="col-4 col-6-medium col-12-small">
-            <article class="box style2">
-              <a href="#" class="image featured"
-                ><img src="images/ta-xtendops.png" alt=""
-              /></a>
-              <h3>
-                <a href="#">XtendOps <br />TA Portal</a>
-              </h3>
-              <p>Svelte, TypeScript, MongoDB</p>
+            <article class="box style2 project-card">
+              <div class="project-image">
+                <img src="images/ta-xtendops.png" alt="XtendOps TA Portal" />
+                <div class="project-overlay">
+                  <div class="project-links">
+                    <a href="#" class="project-link"><i class="fas fa-link"></i></a>
+                    <a href="#" class="project-github"><i class="fab fa-github"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="project-content">
+                <h3>
+                  <a href="#">XtendOps <br />TA Portal</a>
+                </h3>
+                <div class="project-tech">
+                  <span class="tech-tag">Svelte</span>
+                  <span class="tech-tag">TypeScript</span>
+                  <span class="tech-tag">MongoDB</span>
+                </div>
+                <p class="project-description">A portal for managing talent acquisition.</p>
+              </div>
             </article>
           </div>
           <div class="col-4 col-6-medium col-12-small">
-            <article class="box style2">
-              <a href="#" class="image featured"
-                ><img src="images/apply-xtendops.png" alt=""
-              /></a>
-              <h3>
-                <a href="#">XtendOps <br />Apply Portal</a>
-              </h3>
-              <p>Svelte, TypeScript, MongoDB</p>
+            <article class="box style2 project-card">
+              <div class="project-image">
+                <img src="images/apply-xtendops.png" alt="XtendOps Apply Portal" />
+                <div class="project-overlay">
+                  <div class="project-links">
+                    <a href="#" class="project-link"><i class="fas fa-link"></i></a>
+                    <a href="#" class="project-github"><i class="fab fa-github"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="project-content">
+                <h3>
+                  <a href="#">XtendOps <br />Apply Portal</a>
+                </h3>
+                <div class="project-tech">
+                  <span class="tech-tag">Svelte</span>
+                  <span class="tech-tag">TypeScript</span>
+                  <span class="tech-tag">MongoDB</span>
+                </div>
+                <p class="project-description">A portal for applying for jobs.</p>
+              </div>
             </article>
           </div>
           <div class="col-4 col-6-medium col-12-small">
-            <article class="box style2">
-              <a href="#" class="image featured"
-                ><img src="images/pic06.jpg" alt=""
-              /></a>
-              <h3>
-                <a href="#">XtendOps <br />Monorepo</a>
-              </h3>
-              <p>Svelte, TypeScript, MongoDB</p>
+            <article class="box style2 project-card">
+              <div class="project-image">
+                <img src="images/pic06.jpg" alt="XtendOps Monorepo" />
+                <div class="project-overlay">
+                  <div class="project-links">
+                    <a href="#" class="project-link"><i class="fas fa-link"></i></a>
+                    <a href="#" class="project-github"><i class="fab fa-github"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="project-content">
+                <h3>
+                  <a href="#">XtendOps <br />Monorepo</a>
+                </h3>
+                <div class="project-tech">
+                  <span class="tech-tag">Svelte</span>
+                  <span class="tech-tag">TypeScript</span>
+                  <span class="tech-tag">MongoDB</span>
+                </div>
+                <p class="project-description">A monorepository for XtendOps.</p>
+              </div>
             </article>
           </div>
         </div>
@@ -333,57 +1516,77 @@
     </article>
 
     <!-- Contact -->
-    <article id="contact" class="wrapper style4">
+    <article id="contact" class="wrapper style4 console-article">
       <div class="container medium">
-        <header>
+        <header class="console-header">
+          <div class="console-line">
+            <span class="console-prompt">></span>
+            <span class="console-text">contact</span>
+          </div>
           <h2>Get In Touch</h2>
           <p>Let's discuss how I can help with your project</p>
         </header>
         <div class="row">
           <div class="col-12">
-            <form method="post" action="#" id="contact-form">
+            <form method="post" action="#" id="contact-form" class="console-box">
               <div class="row">
                 <div class="col-6 col-12-small">
-                  <input type="text" name="name" id="name" placeholder="Name" required />
+                  <div class="console-input">
+                    <span class="console-prompt">></span>
+                    <input type="text" name="name" id="name" placeholder="Name" required />
+                  </div>
                 </div>
                 <div class="col-6 col-12-small">
-                  <input type="email" name="email" id="email" placeholder="Email" required />
+                  <div class="console-input">
+                    <span class="console-prompt">></span>
+                    <input type="email" name="email" id="email" placeholder="Email" required />
+                  </div>
                 </div>
                 <div class="col-12">
-                  <input type="text" name="subject" id="subject" placeholder="Subject" required />
+                  <div class="console-input">
+                    <span class="console-prompt">></span>
+                    <input type="text" name="subject" id="subject" placeholder="Subject" required />
+                  </div>
                 </div>
                 <div class="col-12">
-                  <textarea name="message" id="message" placeholder="Message" required></textarea>
+                  <div class="console-input">
+                    <span class="console-prompt">></span>
+                    <textarea name="message" id="message" placeholder="Message" required></textarea>
+                  </div>
                 </div>
                 <div class="col-12">
                   <ul class="actions">
-                    <li><input type="submit" value="Send Message" class="primary" /></li>
+                    <li>
+                      <button type="submit" class="console-button">
+                        ./send-message.sh<span class="console-cursor"></span>
+                      </button>
+                    </li>
                   </ul>
                 </div>
               </div>
             </form>
           </div>
           <div class="col-12">
-            <hr />
-            <h3>Connect With Me</h3>
+            <hr class="console-hr" />
+            <h3 class="console-text">Connect With Me</h3>
             <ul class="social">
               <li>
-                <a href="https://www.linkedin.com/in/narciso-alamar-6a614017b/" class="icon brands fa-linkedin-in">
+                <a href="https://www.linkedin.com/in/narciso-alamar-6a614017b/" class="icon brands fa-linkedin-in console-icon">
                   <span class="label">LinkedIn</span>
                 </a>
               </li>
               <li>
-                <a href="https://github.com/narzz03" class="icon brands fa-github">
+                <a href="https://github.com/narzz03" class="icon brands fa-github console-icon">
                   <span class="label">Github</span>
                 </a>
               </li>
               <li>
-                <a href="https://www.facebook.com/narzZ08" class="icon brands fa-facebook-f">
+                <a href="https://www.facebook.com/narzZ08" class="icon brands fa-facebook-f console-icon">
                   <span class="label">Facebook</span>
                 </a>
               </li>
               <li>
-                <a href="https://www.instagram.com/narcisoalamariii/" class="icon brands fa-instagram">
+                <a href="https://www.instagram.com/narcisoalamariii/" class="icon brands fa-instagram console-icon">
                   <span class="label">Instagram</span>
                 </a>
               </li>
@@ -392,7 +1595,7 @@
         </div>
         <footer>
           <ul id="copyright">
-            <li>&copy; 2024 Narz Alamar. All rights reserved.</li>
+            <li class="console-text">&copy; 2024 Narz Alamar. All rights reserved.</li>
           </ul>
         </footer>
       </div>
@@ -426,9 +1629,203 @@
       // Form submission handling
       document.getElementById('contact-form').addEventListener('submit', function(e) {
         e.preventDefault();
-        // Add your form submission logic here
         alert('Thank you for your message! I will get back to you soon.');
         this.reset();
+      });
+
+      // Cursor Trail Effect
+      const cursorTrails = [];
+      const trailCount = 20;
+
+      for (let i = 0; i < trailCount; i++) {
+        const trail = document.createElement('div');
+        trail.className = 'cursor-trail';
+        document.body.appendChild(trail);
+        cursorTrails.push(trail);
+      }
+
+      let mouseX = 0;
+      let mouseY = 0;
+
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
+
+      function updateTrails() {
+        let x = mouseX;
+        let y = mouseY;
+
+        cursorTrails.forEach((trail, index) => {
+          const nextTrail = cursorTrails[index + 1] || cursorTrails[0];
+          
+          x += (nextTrail.offsetLeft - x) * 0.3;
+          y += (nextTrail.offsetTop - y) * 0.3;
+          
+          trail.style.left = x + 'px';
+          trail.style.top = y + 'px';
+          trail.style.opacity = (trailCount - index) / trailCount;
+        });
+
+        requestAnimationFrame(updateTrails);
+      }
+
+      updateTrails();
+
+      // Create 8-bit galaxy background
+      function createGalaxy() {
+        const banner = document.getElementById('galaxy-banner');
+        const starCount = 150; // Increased star count
+        
+        // Create stars
+        for (let i = 0; i < starCount; i++) {
+          const star = document.createElement('div');
+          star.className = 'star';
+          star.style.left = `${Math.random() * 100}%`;
+          star.style.top = `${Math.random() * 100}%`;
+          star.style.setProperty('--twinkle-duration', `${1 + Math.random() * 2}s`);
+          star.style.transform = `scale(${Math.random() * 0.8 + 0.2})`; // Random star sizes
+          banner.appendChild(star);
+        }
+
+        // Create planets
+        for (let i = 0; i < 5; i++) { // Increased planet count
+          const planet = document.createElement('div');
+          planet.className = 'pixel-planet';
+          planet.style.left = `${10 + Math.random() * 80}%`;
+          planet.style.top = `${10 + Math.random() * 80}%`;
+          planet.style.transform = `scale(${0.5 + Math.random() * 1.5})`; // Larger planets
+          planet.style.background = `hsl(${Math.random() * 360}, 70%, 60%)`; // Random colors
+          planet.style.boxShadow = `0 0 20px ${planet.style.background}`;
+          banner.appendChild(planet);
+        }
+      }
+
+      // Enhanced Smoke Trail Effect
+      class SmokeParticle {
+        constructor(x, y) {
+          this.element = document.createElement('div');
+          this.element.className = 'smoke-particle';
+          document.body.appendChild(this.element);
+          
+          this.size = 80 + Math.random() * 40;
+          this.x = x;
+          this.y = y;
+          this.vx = (Math.random() - 0.5) * 0.5;
+          this.vy = -Math.random() * 0.5 - 0.2;
+          this.life = 1;
+          this.rotation = Math.random() * 360;
+          this.rotationSpeed = (Math.random() - 0.5) * 0.5;
+          this.scale = 0.5;
+          this.scaleSpeed = 0.01;
+          
+          this.element.style.width = `${this.size}px`;
+          this.element.style.height = `${this.size}px`;
+        }
+
+        update() {
+          this.life -= 0.005;
+          this.x += this.vx;
+          this.y += this.vy;
+          this.rotation += this.rotationSpeed;
+          this.scale += this.scaleSpeed;
+
+          this.element.style.opacity = this.life;
+          this.element.style.transform = `
+            translate(${this.x}px, ${this.y}px) 
+            rotate(${this.rotation}deg) 
+            scale(${this.scale})
+          `;
+
+          if (this.life <= 0) {
+            this.element.remove();
+            return false;
+          }
+          return true;
+        }
+      }
+
+      const particles = [];
+      let lastMouseX = 0;
+      let lastMouseY = 0;
+      let lastParticleTime = 0;
+
+      document.addEventListener('mousemove', (e) => {
+        const currentTime = Date.now();
+        if (currentTime - lastParticleTime > 2) {
+          const dx = e.clientX - lastMouseX;
+          const dy = e.clientY - lastMouseY;
+          const speed = Math.sqrt(dx * dx + dy * dy);
+          
+          if (speed > 0.5) {
+            // Create multiple particles for each movement
+            for (let i = 0; i < 3; i++) {
+              const offsetX = (Math.random() - 0.5) * 20;
+              const offsetY = (Math.random() - 0.5) * 20;
+              particles.push(new SmokeParticle(e.clientX + offsetX, e.clientY + offsetY));
+            }
+            lastParticleTime = currentTime;
+          }
+          
+          lastMouseX = e.clientX;
+          lastMouseY = e.clientY;
+        }
+      });
+
+      function updateParticles() {
+        for (let i = particles.length - 1; i >= 0; i--) {
+          if (!particles[i].update()) {
+            particles.splice(i, 1);
+          }
+        }
+        requestAnimationFrame(updateParticles);
+      }
+
+      // Initialize everything
+      createGalaxy();
+      updateParticles();
+
+      function typeSkills() {
+        const skillsData = document.getElementById('skills-data').textContent
+          .trim()
+          .split('\n')
+          .map(skill => skill.trim());
+        
+        const typingText = document.getElementById('typing-text');
+        let currentSkillIndex = 0;
+
+        async function typeSkill(skill) {
+          typingText.textContent = '';
+          for (let i = 0; i < skill.length; i++) {
+            typingText.textContent += skill[i];
+            await new Promise(resolve => setTimeout(resolve, 50)); // Adjust typing speed here
+          }
+          await new Promise(resolve => setTimeout(resolve, 1500)); // Pause at the end
+        }
+
+        async function eraseSkill() {
+          const text = typingText.textContent;
+          for (let i = text.length; i > 0; i--) {
+            typingText.textContent = text.substring(0, i - 1);
+            await new Promise(resolve => setTimeout(resolve, 30)); // Adjust erasing speed here
+          }
+          await new Promise(resolve => setTimeout(resolve, 500)); // Pause before next skill
+        }
+
+        async function animateSkills() {
+          while (true) {
+            await typeSkill(skillsData[currentSkillIndex]);
+            await eraseSkill();
+            currentSkillIndex = (currentSkillIndex + 1) % skillsData.length;
+          }
+        }
+
+        animateSkills();
+      }
+
+      // Call this function after the DOM is loaded
+      document.addEventListener('DOMContentLoaded', function() {
+        typeSkills();
       });
     </script>
   </body>
