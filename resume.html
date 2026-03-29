@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Narz Alamar — Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      :root {
+        --accent: #2563eb;
+        --text: #111827;
+        --muted: #6b7280;
+        --border: #e5e7eb;
+        --bg: #ffffff;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        font-size: 13px;
+        color: var(--text);
+        background: #f3f4f6;
+        line-height: 1.5;
+      }
+
+      .page {
+        width: 210mm;
+        min-height: 297mm;
+        background: var(--bg);
+        margin: 2rem auto;
+        padding: 2.5rem 2.8rem;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+      }
+
+      /* HEADER */
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding-bottom: 1.25rem;
+        border-bottom: 2px solid var(--accent);
+        margin-bottom: 1.5rem;
+      }
+
+      .header-left h1 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--text);
+        letter-spacing: -0.02em;
+        line-height: 1;
+        margin-bottom: 0.3rem;
+      }
+
+      .header-left .title {
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: var(--accent);
+      }
+
+      .header-right {
+        text-align: right;
+        font-size: 0.8rem;
+        color: var(--muted);
+        line-height: 1.8;
+      }
+
+      .header-right a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      /* SECTION */
+      .section {
+        margin-bottom: 1.4rem;
+      }
+
+      .section-title {
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--accent);
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 0.3rem;
+        margin-bottom: 0.85rem;
+      }
+
+      /* EXPERIENCE */
+      .exp-item {
+        margin-bottom: 1rem;
+      }
+
+      .exp-item:last-child { margin-bottom: 0; }
+
+      .exp-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 0.15rem;
+      }
+
+      .exp-role {
+        font-weight: 600;
+        font-size: 0.875rem;
+        color: var(--text);
+      }
+
+      .exp-date {
+        font-size: 0.775rem;
+        color: var(--muted);
+        white-space: nowrap;
+        margin-left: 1rem;
+      }
+
+      .exp-company {
+        font-size: 0.8rem;
+        color: var(--accent);
+        font-weight: 500;
+        margin-bottom: 0.25rem;
+      }
+
+      .exp-desc {
+        font-size: 0.8rem;
+        color: #374151;
+        line-height: 1.6;
+      }
+
+      /* SKILLS */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.6rem 2rem;
+      }
+
+      .skill-row {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+      }
+
+      .skill-label {
+        font-size: 0.775rem;
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.3rem;
+      }
+
+      .skill-tag {
+        font-size: 0.7rem;
+        padding: 2px 7px;
+        background: #eff6ff;
+        color: var(--accent);
+        border-radius: 4px;
+        border: 1px solid #bfdbfe;
+      }
+
+      /* EDUCATION */
+      .edu-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+      }
+
+      .edu-degree {
+        font-weight: 600;
+        font-size: 0.875rem;
+      }
+
+      .edu-school {
+        font-size: 0.8rem;
+        color: var(--muted);
+        margin-top: 0.1rem;
+      }
+
+      /* PROJECTS */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem 2rem;
+      }
+
+      .project-item {
+        font-size: 0.8rem;
+      }
+
+      .project-name {
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      .project-tech {
+        color: var(--muted);
+        font-size: 0.75rem;
+      }
+
+      /* PRINT */
+      .print-btn {
+        display: block;
+        width: fit-content;
+        margin: 0 auto 1rem;
+        padding: 0.6rem 1.5rem;
+        background: var(--accent);
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: 'Inter', sans-serif;
+      }
+
+      @media print {
+        body { background: white; }
+        .page { margin: 0; box-shadow: none; padding: 1.5rem 2rem; }
+        .print-btn { display: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <button class="print-btn" onclick="window.print()">Download / Print PDF</button>
+
+    <div class="page">
+
+      <!-- HEADER -->
+      <div class="header">
+        <div class="header-left">
+          <h1>Narciso "Narz" Alamar</h1>
+          <div class="title">Full Stack Developer &amp; Team Lead</div>
+        </div>
+        <div class="header-right">
+          <div>Philippines</div>
+          <div><a href="https://www.linkedin.com/in/narciso-alamar-6a614017b/">linkedin.com/in/narciso-alamar</a></div>
+          <div><a href="https://github.com/narzz03">github.com/narzz03</a></div>
+          <div><a href="https://narzz03.github.io">narzz03.github.io</a></div>
+        </div>
+      </div>
+
+      <!-- SUMMARY -->
+      <div class="section">
+        <div class="section-title">Summary</div>
+        <p style="font-size:0.82rem;color:#374151;line-height:1.7;">
+          Full Stack Developer with a Bachelor of Science in Computer Science and 10+ years of experience building web applications, internal tools, and AI-powered solutions. Proven track record leading engineering teams and delivering scalable products across BPO, tech, and SaaS industries. Experienced in CRM platforms including WordPress, GoHighLevel, and ZOHO. Currently freelancing and open to full-time opportunities.
+        </p>
+      </div>
+
+      <!-- EXPERIENCE -->
+      <div class="section">
+        <div class="section-title">Work Experience</div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-role">Software Engineer &amp; Team Lead</span>
+            <span class="exp-date">2019 – 2025</span>
+          </div>
+          <div class="exp-company">XtendOps Philippines Inc.</div>
+          <div class="exp-desc">Led a team of developers building internal tools and portals — timekeeping systems, talent acquisition platforms, APIs, and monorepo architecture using AdonisJS, React, SvelteKit, and TypeScript. Also developed AI agents and AI-powered tools for clients, automating workflows and enhancing operational efficiency.</div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-role">Zoho CRM Implementation · Project Based</span>
+            <span class="exp-date">February 2026</span>
+          </div>
+          <div class="exp-company">NE Solutions</div>
+          <div class="exp-desc">Implemented and configured Zoho CRM tailored to the client's business workflows, including automation, pipelines, and integrations.</div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-role">Software Engineer · Project Based</span>
+            <span class="exp-date">February 2026</span>
+          </div>
+          <div class="exp-company">Real Virtual Elite · Tee Time Golf Tours</div>
+          <div class="exp-desc">Developed and deployed the Tee Time Golf Tours website, handling full project setup including domain management, server configuration, and WordPress implementation.</div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-role">Reporting Analyst</span>
+            <span class="exp-date">2018 – 2019</span>
+          </div>
+          <div class="exp-company">Proof Inc.</div>
+          <div class="exp-desc">Handled payroll processing, campaign reports, and analytics — delivering accurate data and insights to support operational and business decisions.</div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-role">QA Specialist</span>
+            <span class="exp-date">2016 – 2018</span>
+          </div>
+          <div class="exp-company">Voiceless Technologies</div>
+          <div class="exp-desc">Conducted quality assurance evaluations, identifying issues and providing coaching to agents to ensure quality standards were consistently met.</div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-role">Transfer Validation Specialist</span>
+            <span class="exp-date">2015 – 2016</span>
+          </div>
+          <div class="exp-company">Avatar Technologies</div>
+          <div class="exp-desc">Validated customer transfers to ensure customers were legitimate and met the required standards before processing.</div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-role">Customer Service Representative</span>
+            <span class="exp-date">2014 – 2015</span>
+          </div>
+          <div class="exp-company">Transcom Philippines · BestBuy Account</div>
+          <div class="exp-desc">Provided customer support for BestBuy clients, handling inquiries, troubleshooting, and order management.</div>
+        </div>
+      </div>
+
+      <!-- SKILLS -->
+      <div class="section">
+        <div class="section-title">Skills</div>
+        <div class="skills-grid">
+          <div class="skill-row">
+            <span class="skill-label">Frontend</span>
+            <div class="skill-tags">
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">SvelteKit</span>
+              <span class="skill-tag">TypeScript</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">HTML5</span>
+              <span class="skill-tag">CSS3</span>
+            </div>
+          </div>
+          <div class="skill-row">
+            <span class="skill-label">Backend</span>
+            <div class="skill-tags">
+              <span class="skill-tag">Node.js</span>
+              <span class="skill-tag">AdonisJS</span>
+              <span class="skill-tag">Express</span>
+              <span class="skill-tag">PHP</span>
+              <span class="skill-tag">C#</span>
+              <span class="skill-tag">Prisma</span>
+            </div>
+          </div>
+          <div class="skill-row">
+            <span class="skill-label">Database &amp; DevOps</span>
+            <div class="skill-tags">
+              <span class="skill-tag">MySQL</span>
+              <span class="skill-tag">MongoDB</span>
+              <span class="skill-tag">Docker</span>
+              <span class="skill-tag">AWS</span>
+              <span class="skill-tag">Git</span>
+              <span class="skill-tag">GitHub</span>
+              <span class="skill-tag">Nginx</span>
+              <span class="skill-tag">Linux</span>
+              <span class="skill-tag">VPS Setup</span>
+              <span class="skill-tag">DNS Management</span>
+              <span class="skill-tag">Cloudflare</span>
+            </div>
+          </div>
+          <div class="skill-row">
+            <span class="skill-label">CRM &amp; Marketing Platforms</span>
+            <div class="skill-tags">
+              <span class="skill-tag">WordPress</span>
+              <span class="skill-tag">GoHighLevel</span>
+              <span class="skill-tag">GHL Funnels</span>
+              <span class="skill-tag">GHL Web Forms</span>
+              <span class="skill-tag">ZOHO CRM</span>
+              <span class="skill-tag">ZOHO One</span>
+              <span class="skill-tag">Automation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EDUCATION -->
+      <div class="section">
+        <div class="section-title">Education</div>
+        <div class="edu-item">
+          <div>
+            <div class="edu-degree">Bachelor of Science in Computer Science</div>
+            <div class="edu-school">Central Philippine University</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECTS -->
+      <div class="section">
+        <div class="section-title">Key Projects</div>
+        <div class="projects-grid">
+          <div class="project-item">
+            <div class="project-name">XtendOps — XConnect</div>
+            <div class="project-tech">React · TypeScript · MySQL — QA coaching, timekeeping &amp; training management</div>
+          </div>
+          <div class="project-item">
+            <div class="project-name">XtendOps — Talent Acquisition Portal</div>
+            <div class="project-tech">AdonisJS · React · TypeScript · MySQL</div>
+          </div>
+          <div class="project-item">
+            <div class="project-name">XtendOps — Core API</div>
+            <div class="project-tech">AdonisJS · TypeScript · MySQL</div>
+          </div>
+          <div class="project-item">
+            <div class="project-name">XtendOps — XO Atlas</div>
+            <div class="project-tech">Svelte · TypeScript · MongoDB — Employee records &amp; timesheets</div>
+          </div>
+          <div class="project-item">
+            <div class="project-name">XtendOps — Monorepo</div>
+            <div class="project-tech">Svelte · TypeScript · MongoDB</div>
+          </div>
+          <div class="project-item">
+            <div class="project-name">Tee Time Golf Tours</div>
+            <div class="project-tech">WordPress — Full deployment &amp; server setup</div>
+          </div>
+          <div class="project-item">
+            <div class="project-name">CPU Attendance Monitoring System</div>
+            <div class="project-tech">C# · PHP · MySQL</div>
+          </div>
+          <div class="project-item">
+            <div class="project-name">Proof BPO — Timekeeping &amp; Coaching Tool</div>
+            <div class="project-tech">PHP · JavaScript · MySQL</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>
