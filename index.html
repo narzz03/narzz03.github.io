@@ -604,6 +604,91 @@
       .skill-card[data-accent="orange"] .skill-bar-fill { background: linear-gradient(90deg, var(--accent-4), var(--accent-3)); }
 
       /* ==============================
+         ABOUT SECTION
+      ============================== */
+      #about { background: var(--bg-2); }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+
+      .about-bio {
+        font-size: 1rem;
+        color: var(--text-muted);
+        line-height: 1.9;
+      }
+
+      .about-bio p { margin-bottom: 1rem; }
+
+      .about-bio strong { color: var(--text); font-weight: 600; }
+
+      .about-hobbies {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1.5rem;
+      }
+
+      .hobby-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-size: 0.82rem;
+        padding: 5px 12px;
+        border-radius: 20px;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        color: var(--text-muted);
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+
+      .stat-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.5rem;
+        text-align: center;
+        transition: all var(--transition);
+      }
+
+      .stat-card:hover {
+        border-color: var(--border-hover);
+        background: var(--surface-hover);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+      }
+
+      .stat-number {
+        font-family: var(--font-heading);
+        font-size: 2.5rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1;
+        margin-bottom: 0.4rem;
+      }
+
+      .stat-label {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        font-family: var(--font-mono);
+      }
+
+      @media (max-width: 900px) {
+        .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      }
+
+      /* ==============================
          TIMELINE SECTION
       ============================== */
       #experience { background: var(--bg-2); }
@@ -1118,6 +1203,7 @@
     <nav id="nav">
       <ul class="container">
         <li><a href="#top">NA</a></li>
+        <li><a href="#about" class="scrolly">About</a></li>
         <li><a href="#work" class="scrolly">Skills</a></li>
         <li><a href="#experience" class="scrolly">Experience</a></li>
         <li><a href="#portfolio" class="scrolly">Projects</a></li>
@@ -1170,6 +1256,52 @@
       <div class="scroll-indicator">
         <span>scroll</span>
         <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ==============================
+         ABOUT
+    ============================== -->
+    <section id="about">
+      <div class="section-inner">
+        <div class="about-grid">
+          <div class="reveal">
+            <div class="section-label">about me</div>
+            <h2 class="section-title">Who I Am</h2>
+            <div class="about-bio">
+              <p>I'm a <strong>Full Stack Developer</strong> based in the Philippines with a <strong>Bachelor of Science in Computer Science</strong> and 10+ years of experience building web applications, internal tools, and AI-powered solutions.</p>
+              <p>I've worked across BPO, tech, and SaaS industries — from writing my first line of code to leading engineering teams. Currently <strong>freelancing</strong> and open to full-time opportunities.</p>
+              <p>When I'm not coding, you'll find me gaming, shooting hoops, singing, or catching the latest movies.</p>
+            </div>
+            <div class="about-hobbies">
+              <span class="hobby-tag"><i class="fas fa-gamepad"></i> Gaming</span>
+              <span class="hobby-tag"><i class="fas fa-basketball"></i> Basketball</span>
+              <span class="hobby-tag"><i class="fas fa-microphone"></i> Singing</span>
+              <span class="hobby-tag"><i class="fas fa-film"></i> Movies</span>
+            </div>
+          </div>
+
+          <div class="stats-grid reveal">
+            <div class="stat-card">
+              <div class="stat-number">10+</div>
+              <div class="stat-label">Years of Experience</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">15+</div>
+              <div class="stat-label">Projects Shipped</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">6</div>
+              <div class="stat-label">Companies Worked</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">1</div>
+              <div class="stat-label">Team Led</div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
